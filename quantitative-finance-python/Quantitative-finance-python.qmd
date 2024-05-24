@@ -1,4 +1,155 @@
 ---
-title: "Quantitative-finance-python"
+title: "Quantitative Finance  Algorithmic Trading in Python"
 ---
 
+# Section 1 - Introduction
+- installing Python
+- why to use Python programming language
+- the problem with financial models and historical data
+  
+# Section 2 - Stock Market Basics
+
+## Present value and future value of money
+
+Key Concepts
+
+- Time Value of Money: Money today is worth more than money in the future due to its potential earning capacity and inflation.
+- Present Value (PV): The current value of a future sum of money discounted at a specific interest rate.
+- Future Value (FV): The value of a current asset at a future date based on an assumed rate of growth.
+  
+Investment Scenarios
+
+- Treasury Bills
+- Corporate Bonds
+- Stocks
+  
+Investments carry risks, leading to a premium (interest) received.
+
+```{python}
+from math import exp
+
+def future_discrete_value(x: float, r: float, n: int):
+    return x*(1 + r)**n
+
+def present_discrete_value(x: float, r: float, n: int):
+    return x*(1 + r)**-n
+
+def future_continuous_value(x: float, r: float, t: int):
+    return x*exp(r*t)
+
+def present_continuous_value(x: float, r: float, t: int):
+    return x*exp(-r*t)
+```
+
+```{python}
+# Value of investment in dollars
+x = 100
+# Define the interest rate (r)
+r  = 0.05
+# Duration (years)
+n = 5
+
+print("Future values (discrete model) of x: %s" % future_discrete_value(x,r,n))
+print("Present values (discrete model) of x: %s" % present_discrete_value(x,r,n))
+print("Future values (continuous model) of x: %s" % future_continuous_value(x,r,n))
+print("Present values (continuous model) of x: %s" % present_continuous_value(x,r,n))
+```
+
+### Calculations
+#### Discrete Model
+
+**Future Value**
+$$FV = PV \cdot (1+r)^n$$
+
+**Future Value**
+$$PV = \frac{FV}{(1+r)^n}$$
+
+- $FV$ = Future Value
+- $PV$ = Present Value
+- $r$ = Interest Rate
+- $n$ = Duration (years)
+
+#### Continuous Model
+Using differential equations, the future value in continuous time is modeled by an exponential function.
+
+**Future Value**
+
+$$FV = PV \cdot e^{rt}$$
+
+
+**Present Value**
+
+$$PV = \frac{FV}{e^{rt}}$$
+
+- $FV$ = Future Value
+- $PV$ = Present Value
+- $e$ = Base of the natural logarithm
+- $r$ = Interest Rate
+- $t$ = Duration (years)
+
+
+# Section 3 - Bond Theory and Implementation
+
+- what are bonds
+- yields and yield to maturity
+- Macaulay duration
+- bond pricing theory and implementation
+
+
+# Section 4 - Modern Portfolio Theory (Markowitz Model)
+
+- what is diverzification in finance?
+- mean and variance
+- efficient frontier and the Sharpe ratio
+- capital allocation line (CAL)
+
+# Section 5 - Capital Asset Pricing Model (CAPM)
+
+- systematic and unsystematic risks
+- beta and alpha parameters
+- linear regression and market risk
+- why market risk is the only relevant risk?
+
+# Section 6 - Derivatives Basics
+
+- derivatives basics
+- options (put and call options)
+- forward and future contracts
+- credit default swaps (CDS)
+- interest rate swaps
+
+
+# Section 7 - Random Behavior in Finance
+
+- random behavior
+- Wiener processes
+- stochastic calculus and Ito's lemma
+- brownian motion theory and implementation
+
+# Section 8 - Black-Scholes Model
+
+- Black-Scholes model theory and implementation
+- Monte-Carlo simulations for option pricing
+- the greeks
+
+# Section 9 - Value-at-Risk (VaR)
+
+- what is value at risk (VaR)
+- Monte-Carlo simulation to calculate risks
+
+# Section 10 - Collateralized Debt Obligation (CDO)
+
+- what are CDOs?
+- the financial crisis in 2008
+
+# Section 11 - Interest Rate Models
+
+- mean reverting stochastic processes
+- the Ornstein-Uhlenbeck process
+- the Vasicek model
+- using Monte-Carlo simulation to price bonds
+
+# Section 12 - Value Investing
+
+- long term investing
+- efficient market hypothesis
