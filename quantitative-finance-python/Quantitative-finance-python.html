@@ -188,12 +188,76 @@ Present values (continuous model) of x: 77.8800783071405</code></pre>
 </section>
 <section id="section-3---bond-theory-and-implementation" class="level1">
 <h1>Section 3 - Bond Theory and Implementation</h1>
+<p>A bond is a debt investment in which an investor loans money to an entity (a company or a government) for a defined period of time, with variable or fixed interest rates. Bonds are usually called fixed income securities.</p>
+<p>When a company needs to raise money to finance new projects, they may issue bonds directly to investors instead of obtaining loans from the bank. There are three options for raising capital: bank loans, issuing bonds, and going public (selling stocks).</p>
+<p>There are two main types of bonds: zero coupon bonds and coupon bonds.</p>
+<ol type="1">
+<li><strong>Zero Coupon Bonds</strong>:
 <ul>
-<li>what are bonds</li>
-<li>yields and yield to maturity</li>
-<li>Macaulay duration</li>
-<li>bond pricing theory and implementation</li>
+<li>Have three important parameters: principal amount, interest rate, and time to maturity.</li>
+<li>The principal amount is paid to the investor after the specified period.</li>
+<li>The current value of the bond is calculated by discounting the principal amount using the market interest rate.</li>
+</ul></li>
+<li><strong>Coupon Bonds</strong>:
+<ul>
+<li>Have a principal amount, a coupon rate (a nominal percentage of the principal paid annually), and time to maturity.</li>
+<li>Annual coupon payments are made to the investor, and the principal is paid at the end of the period.</li>
+<li>The bond’s value is calculated by discounting both the annual coupon payments and the principal amount using the market interest rate <span class="math display">\[\sum_{i=1}^n \frac{c}{(1+r)^i} + \frac{x}{(1+r)^i}\]</span></li>
+</ul></li>
+</ol>
+<p><span class="math display">\[\frac{c}{r} \left[ 1 + \frac{1}{(1+r)^n} \right] + \frac{x}{(1+r)^i}\]</span></p>
+<p>For both types of bonds, the present value is calculated by discounting future cash flows using the market interest rate, not the bond’s interest rate.</p>
+<p>In the upcoming lectures, we will discuss interesting features of bonds in more detail. ## Yields and Yield to Maturity</p>
+<section id="yield" class="level3">
+<h3 class="anchored" data-anchor-id="yield">Yield</h3>
+<p>A yield is a figure that shows the return you get on a given bond. It is calculated using the following formula:</p>
+<p><span class="math display">\[
+\text{Yield} = \frac{\text{Annual Coupon Payment}}{\text{Price of the Bond}}
+\]</span></p>
+<p>For example, if the annual coupon payment is $100 and the price of the bond is $1167, the yield is:</p>
+<p><span class="math display">\[
+\text{Yield} = \frac{100}{1167}
+\]</span></p>
+</section>
+<section id="yield-to-maturity-ytm" class="level3">
+<h3 class="anchored" data-anchor-id="yield-to-maturity-ytm">Yield to Maturity (YTM)</h3>
+<p>The yield to maturity (YTM) of a bond is the internal rate of return earned by an investor who buys the bond at the current market price and holds it until maturity. It is the interest rate that makes the present value of future cash flows from the bond equal to the current price of the bond.</p>
+<p>The equation to calculate YTM is:</p>
+<p><span class="math display">\[
+\text{Bond Price} = \sum_{t=1}^{T} \frac{\text{Coupon Payment}}{(1+Y)^t} + \frac{\text{Principal}}{(1+Y)^T}
+\]</span></p>
+<ul>
+<li>( ): Current price of the bond</li>
+<li>( t ): Time period</li>
+<li>( T ): Maturity period</li>
+<li>( Y ): Yield to maturity</li>
+<li>( ): Periodic payment made by the bond</li>
+<li>( ): Face value of the bond</li>
 </ul>
+</section>
+<section id="discounting-with-continuous-model" class="level3">
+<h3 class="anchored" data-anchor-id="discounting-with-continuous-model">Discounting with Continuous Model</h3>
+<p>In the continuous model, we use exponential functions for discounting. The present value (PV) of the bond is calculated as follows:</p>
+<p><span class="math display">\[
+PV = \sum_{t=1}^{T} \text{Coupon Payment} \cdot e^{-Yt} + \text{Principal} \cdot e^{-YT}
+\]</span></p>
+<ul>
+<li>( e ): Base of the natural logarithm</li>
+<li>( Y ): Yield to maturity</li>
+<li>( t ): Time period</li>
+<li>( T ): Maturity period</li>
+</ul>
+</section>
+<section id="yield-curves" class="level3">
+<h3 class="anchored" data-anchor-id="yield-curves">Yield Curves</h3>
+<p>A yield curve is a graph showing the relationship between the yield and the time to maturity for bonds. The yield curve typically has the following shape:</p>
+<ul>
+<li><strong>Vertical Axis</strong>: Yield</li>
+<li><strong>Horizontal Axis</strong>: Time to maturity</li>
+</ul>
+<p>The yield curve usually slopes upwards, indicating that longer-term bonds offer higher yields due to increased risk. Investors expect more yield in return for loaning their money for a longer period of time. This is because long-term bonds pose more risk, such as the possibility of more attractive investments arising or negative effects impacting the bonds.</p>
+<p>In finance, higher risk is typically rewarded with higher yield. Therefore, bonds with longer times to maturity generally have higher yields.</p>
+</section>
 </section>
 <section id="section-4---modern-portfolio-theory-markowitz-model" class="level1">
 <h1>Section 4 - Modern Portfolio Theory (Markowitz Model)</h1>

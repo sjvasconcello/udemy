@@ -90,10 +90,85 @@ $$PV = \frac{FV}{e^{rt}}$$
 
 # Section 3 - Bond Theory and Implementation
 
-- what are bonds
-- yields and yield to maturity
-- Macaulay duration
-- bond pricing theory and implementation
+A bond is a debt investment in which an investor loans money to an entity (a company or a government) for a defined period of time, with variable or fixed interest rates. Bonds are usually called fixed income securities.
+
+When a company needs to raise money to finance new projects, they may issue bonds directly to investors instead of obtaining loans from the bank. There are three options for raising capital: bank loans, issuing bonds, and going public (selling stocks).
+
+There are two main types of bonds: zero coupon bonds and coupon bonds.
+
+1. **Zero Coupon Bonds**:
+   - Have three important parameters: principal amount, interest rate, and time to maturity.
+   - The principal amount is paid to the investor after the specified period.
+   - The current value of the bond is calculated by discounting the principal amount using the market interest rate.
+
+2. **Coupon Bonds**:
+   - Have a principal amount, a coupon rate (a nominal percentage of the principal paid annually), and time to maturity.
+   - Annual coupon payments are made to the investor, and the principal is paid at the end of the period.
+   - The bond's value is calculated by discounting both the annual coupon payments and the principal amount using the market interest rate
+$$\sum_{i=1}^n \frac{c}{(1+r)^i} + \frac{x}{(1+r)^i}$$
+ 
+
+$$\frac{c}{r} \left[ 1 + \frac{1}{(1+r)^n} \right] + \frac{x}{(1+r)^i}$$
+
+For both types of bonds, the present value is calculated by discounting future cash flows using the market interest rate, not the bond's interest rate.
+
+In the upcoming lectures, we will discuss interesting features of bonds in more detail.
+## Yields and Yield to Maturity
+
+### Yield
+
+A yield is a figure that shows the return you get on a given bond. It is calculated using the following formula:
+
+$$
+\text{Yield} = \frac{\text{Annual Coupon Payment}}{\text{Price of the Bond}}
+$$
+
+For example, if the annual coupon payment is $100 and the price of the bond is $1167, the yield is:
+
+$$
+\text{Yield} = \frac{100}{1167}
+$$
+
+### Yield to Maturity (YTM)
+
+The yield to maturity (YTM) of a bond is the internal rate of return earned by an investor who buys the bond at the current market price and holds it until maturity. It is the interest rate that makes the present value of future cash flows from the bond equal to the current price of the bond.
+
+The equation to calculate YTM is:
+
+$$
+\text{Bond Price} = \sum_{t=1}^{T} \frac{\text{Coupon Payment}}{(1+Y)^t} + \frac{\text{Principal}}{(1+Y)^T}
+$$
+
+- \( \text{Bond Price} \): Current price of the bond
+- \( t \): Time period
+- \( T \): Maturity period
+- \( Y \): Yield to maturity
+- \( \text{Coupon Payment} \): Periodic payment made by the bond
+- \( \text{Principal} \): Face value of the bond
+
+### Discounting with Continuous Model
+
+In the continuous model, we use exponential functions for discounting. The present value (PV) of the bond is calculated as follows:
+
+$$
+PV = \sum_{t=1}^{T} \text{Coupon Payment} \cdot e^{-Yt} + \text{Principal} \cdot e^{-YT}
+$$
+
+- \( e \): Base of the natural logarithm
+- \( Y \): Yield to maturity
+- \( t \): Time period
+- \( T \): Maturity period
+
+### Yield Curves
+
+A yield curve is a graph showing the relationship between the yield and the time to maturity for bonds. The yield curve typically has the following shape:
+
+- **Vertical Axis**: Yield
+- **Horizontal Axis**: Time to maturity
+
+The yield curve usually slopes upwards, indicating that longer-term bonds offer higher yields due to increased risk. Investors expect more yield in return for loaning their money for a longer period of time. This is because long-term bonds pose more risk, such as the possibility of more attractive investments arising or negative effects impacting the bonds.
+
+In finance, higher risk is typically rewarded with higher yield. Therefore, bonds with longer times to maturity generally have higher yields.
 
 
 # Section 4 - Modern Portfolio Theory (Markowitz Model)
